@@ -1,138 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Pink Quiz UI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-body{
-    background: linear-gradient(135deg,#ff5f9e,#ff8acb);
-    min-height:100vh;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* Glass Card */
-.glass{
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(14px);
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.35);
-}
-
-/* Left question list */
-.question-list li{
-    background: rgba(255,255,255,0.25);
-    margin-bottom:8px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
-}
-.question-list li:hover{
-    background:#fff;
-    color:#ff3f8e;
-    font-weight:600;
-}
-
-/* Options */
-.option{
-    background: rgba(255,255,255,0.35);
-    border-radius:12px;
-    padding:10px 14px;
-    font-size:14px;
-    transition:0.3s;
-}
-.option:hover{
-    background:#ff3f8e;
-    color:#fff;
-}
-
-/* Number circle */
-.q-number{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#fff;
-    color:#ff3f8e;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:600;
-    margin-bottom:10px;
-}
-</style>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-<div class="container-fluid p-4">
-    <div class="row g-4">
-
-        <!-- LEFT SECTION -->
-        <div class="col-md-3">
-            <div class="glass p-3 h-100">
-                <h6 class="text-white mb-3">Questions</h6>
-                <ul class="list-unstyled question-list">
-                    <li class="p-2">Question 1</li>
-                    <li class="p-2">Question 2</li>
-                    <li class="p-2">Question 3</li>
-                    <li class="p-2">Question 4</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- MIDDLE SECTION -->
-        <div class="col-md-6">
-            <div class="glass p-4 h-100">
-                <div class="mb-2 text-white-50">Question 1</div>
-
-                <h5 class="fw-bold mb-4">
-                </h5>
-                
-                <div class="d-grid gap-3">
-                    <ul></ul>
-                    <!-- <div class="option">
-                        <input type="radio" class="form-check-input me-2"> Hyper Text Markup Language
-                    </div>
-                    <div class="option">
-                        <input type="radio" class="form-check-input me-2"> High Text Machine Language
-                    </div>
-                    <div class="option">
-                        <input type="radio" class="form-check-input me-2"> Hyperlinks Text Mark Language
-                    </div>
-                    <div class="option">
-                        <input type="radio" class="form-check-input me-2"> Home Tool Markup Language
-                    </div> -->
-                </div>
-
-                <div class="d-flex justify-content-between mt-4">
-                    <button class="btn btn-outline-light px-4">Previous</button>
-                    <button class="btn btn-light text-pink px-4">Next</button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="question-list bg-secondary vh-100 overflow-y-auto">
+                    <h3 class="text-center">Questions</h3>
+                    <ul class="list-unstyled"></ul>
                 </div>
             </div>
-        </div>
 
-        <!-- RIGHT SECTION -->
-        <div class="col-md-3">
-            <div class="glass p-3 h-100">
-                <h6 class="text-white mb-3">Progress</h6>
-
-                <div class="d-flex flex-wrap gap-2">
-                    <div class="q-number">1</div>
-                    <div class="q-number">2</div>
-                    <div class="q-number">3</div>
-                    <div class="q-number">4</div>
-                    <div class="q-number">5</div>
-                    <div class="q-number">6</div>
+            <div class="col-md-6">
+                <div class="display-que bg-secondary-subtle vh-100">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="text-center"></h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled"></ul>
+                        </div>
+                        <div class="card-footer">
+                            <button id="prev" class="btn btn-outline-primary">Prev</button>
+                            <button id="next" class="btn btn-primary">next</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <div class="col-md-3">
+                <div class="question-circle bg-secondary vh-100 d-flex flex-column align-items-center p-3">
+                    <h5 class="text-center text-dark mb-3"></h5>
+                    <div>
+                        <button id="submit" type="button">Submit</button>
+                    </div>
+                    <div>
+                        <ul id="question-list" class="list-unstyled d-flex flex-wrap pt-3 m-2 justify-content-center">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quiz-container">
+            </div>
+
+            <div id="result-container"
+                class="position-fixed top-50 start-50 translate-middle text-center p-4 bg-white shadow rounded"
+                style="display:none; z-index:999; width:350px;">
+
+                <h2 class="mb-3">Quiz Result</h2>
+                <p id="correct" class="fw-bold text-success"></p>
+                <p id="wrong" class="fw-bold text-danger"></p>
+                <p id="score" class="fw-bold"></p>
+            </div>
+        </div>
     </div>
-</div>
 
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
